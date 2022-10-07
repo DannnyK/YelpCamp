@@ -31,7 +31,7 @@
                         <span class="input-group-text" id='price-label'>R</span>
                         <input type="text" class="form-control" name="campground[price]" placeholder="0" id="price"
                             aria-label="Amount (to the nearest dollar)" required>
-                        <span class="input-group-text">.00</span>
+                        <span class="input-group-text">/night</span>
                         <div class="invalid-feedback">
                             Price cannot be empty!
                         </div>
@@ -56,22 +56,3 @@
 
         </div>
     </div>
-
-    <script>
-        (() => {
-            'use strict'
-
-            const forms = document.querySelectorAll('.validated-form')
-
-            Array.from(forms).forEach(form => {
-                form.addEventListener('submit', event => {
-                    if (!form.checkValidity()) {
-                        event.preventDefault()
-                        event.stopPropagation()
-                    }
-
-                    form.classList.add('was-validated')
-                }, false)
-            })
-        })()
-    </script>
