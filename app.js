@@ -9,6 +9,7 @@ const expressError = require("./utils/expressError.js");
 const methodOverride = require("method-override");
 const Campground = require("./models/campground.js");
 const Review = require("./models/review");
+const session = require("express-session");
 const { join } = require("path");
 const review = require("./models/review");
 // const campground = require('./models/campground.js');
@@ -33,6 +34,18 @@ app.set("views", path.join(__dirname, "views"));
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
 app.use(express.static(path.join(__dirname, "public")));
+
+const sessionConfig = {
+	secret: "thisshouldbeabettersecret!",
+	resave: false,
+	saveUninitialized: true,
+	cookie: {
+		httpOnly: true,
+		expires: Date.now() + 1000 * 60 * 60 * 24 * 7,
+		maxAge: 1000 * 60 * 60 * 24 * 7,
+	},
+};
+app.use(session(sessionConfig));
 
 //middleware
 const validateCampground = (req, res, next) => {
