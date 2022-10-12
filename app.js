@@ -10,6 +10,7 @@ const methodOverride = require("method-override");
 const Campground = require("./models/campground.js");
 const Review = require("./models/review");
 const session = require("express-session");
+const flash = require("connect-flash");
 const { join } = require("path");
 const review = require("./models/review");
 // const campground = require('./models/campground.js');
@@ -34,6 +35,12 @@ app.set("views", path.join(__dirname, "views"));
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
 app.use(express.static(path.join(__dirname, "public")));
+app.use(flash());
+
+app.use((req, res, next) => {
+	res.locals.success = req.flash("success");
+	next();
+});
 
 const sessionConfig = {
 	secret: "thisshouldbeabettersecret!",
@@ -91,6 +98,7 @@ app.post(
 		// if (!req.body.campground) throw new expressError('Invalid campground Data', 400)
 		const campground = new Campground(req.body.campground);
 		await campground.save();
+		req.flash("Success", "successfully made a new campground");
 		res.redirect(`/campgrounds/${campground._id}`);
 	})
 );
