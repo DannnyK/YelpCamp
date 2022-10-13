@@ -1,0 +1,23 @@
+<% layout('layouts/boilerplate') %>
+<h1>Log in</h1>
+<form class="validated-form" action="/login" method="POST" novalidate>
+      <div class="mb-3">
+                    <label class="form-label text-muted" for="username">Username</label>
+                    <input class="form-control" type="text" name="username" id="username" required>
+                    <div class="invalid-feedback">
+                        Field cannot be empty
+                    </div>
+      <!-- <div class="mb-3">
+                    <label class="form-label text-muted" for="email">E-mail</label>
+                    <input class="form-control" type="email" name="email" id="email" required>
+                    <div class="invalid-feedback">
+                        Field cannot be empty
+                    </div> -->
+      <div class="mb-3">
+                    <label class="form-label text-muted" for="password">Password</label>
+                    <input placeholder="Please enter a password between 10 and 25 characters long" class="form-control" type="password" name="password" id="password" minlength='10' maxlength="25" required>
+                    <div class="invalid-feedback">
+                        Please provide a suitable password
+                    </div>
+                    <button class="btn btn-lg btn-success mt-3">Login</button>
+</form>
