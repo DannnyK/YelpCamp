@@ -3,48 +3,55 @@
 <link rel="stylesheet" href="/stylesheets/starsbasic.css" />
 
 <div class="row">
-	<div class="col-6">
-		<div id="campgroundCarousel" class="carousel slide" data-bs-ride="carousel">
-			<div class="carousel-inner">
-				<% campground.images.forEach((img, i) => { %>
-				<div class="carousel-item <%= i === 0 ? 'active' : ''%>">
-					<img src="<%= img.url%>" class="d-block w-100" alt="" />
+	<div class="col-6 pt-1">
+		<div class="card text-light bg-dark mb-3">
+			<div
+				id="campgroundCarousel"
+				class="carousel slide card-img-top"
+				data-bs-ride="carousel"
+			>
+				<div class="carousel-inner">
+					<% campground.images.forEach((img, i) => { %>
+					<div class="carousel-item <%= i === 0 ? 'active' : ''%>">
+						<img src="<%= img.url%>" class="d-block w-100" alt="" />
+					</div>
+					<% }) %>
 				</div>
-				<% }) %>
+				<% if(campground.images.length > 1) {%>
+				<button
+					class="carousel-control-prev"
+					type="button"
+					data-bs-target="#campgroundCarousel"
+					data-bs-slide="prev"
+				>
+					<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+					<span class="visually-hidden">Previous</span>
+				</button>
+				<button
+					class="carousel-control-next"
+					type="button"
+					data-bs-target="#campgroundCarousel"
+					data-bs-slide="next"
+				>
+					<span class="carousel-control-next-icon" aria-hidden="true"></span>
+					<span class="visually-hidden">Next</span>
+				</button>
+				<% } %>
 			</div>
-			<% if(campground.images.length > 1) {%>
-			<button
-				class="carousel-control-prev"
-				type="button"
-				data-bs-target="#campgroundCarousel"
-				data-bs-slide="prev"
-			>
-				<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-				<span class="visually-hidden">Previous</span>
-			</button>
-			<button
-				class="carousel-control-next"
-				type="button"
-				data-bs-target="#campgroundCarousel"
-				data-bs-slide="next"
-			>
-				<span class="carousel-control-next-icon" aria-hidden="true"></span>
-				<span class="visually-hidden">Next</span>
-			</button>
-			<% } %>
-		</div>
-
-		<div class="card mb-3">
-			<div class="card-body">
+			<div class="card-body bg-dark">
 				<h5 class="card-title"><%= campground.title%></h5>
 				<p class="card-text"><%= campground.description%></p>
 			</div>
 			<ul class="list-group list-group-flush">
-				<li class="list-group-item text-muted"><%= campground.location%></li>
-				<li class="list-group-item">
+				<li class="bg-dark list-group-item text-muted">
+					<%= campground.location%>
+				</li>
+				<li class="bg-dark text-muted list-group-item">
 					Submitted by <%= campground.author.username%>
 				</li>
-				<li class="list-group-item">$<%= campground.price%>/night</li>
+				<li class="bg-dark text-muted list-group-item">
+					$<%= campground.price%>/night
+				</li>
 			</ul>
 			<% if( currentUser && campground.author.equals(currentUser._id)) {%>
 			<div class="card-body">
@@ -69,7 +76,7 @@
 	</div>
 	<div class="col-6">
 		<div class="card">
-			<div id="map" style="width: 100%; height: 300px"></div>
+			<div id="map"></div>
 		</div>
 		<% if(currentUser){ %>
 		<h2>Leave a Review</h2>

@@ -1,40 +1,58 @@
 <% layout('layouts/boilerplate') %>
-<h1>Log in</h1>
-<form class="validated-form" action="/login" method="POST" novalidate>
-	<div class="mb-3">
-		<label class="form-label text-muted" for="username">Username</label>
-		<input
-			placeholder="Enter Username"
-			class="form-control"
-			type="text"
-			name="username"
-			id="username"
-			required
-		/>
-		<div class="invalid-feedback">Field cannot be empty</div>
-
-		<div class="mb-3">
-			<label class="form-label text-muted" for="password">Password</label>
-			<input
-				placeholder="Please enter a password between 10 and 25 characters long"
-				class="form-control"
-				type="password"
-				name="password"
-				id="password"
-				minlength="10"
-				maxlength="25"
-				required
+<div class="container mb-5">
+	<div class="row d-flex justify-content-center">
+		<div class="card shadow col-sm-4 px-0">
+			<img
+				class="card-img-top"
+				src="https://images.unsplash.com/photo-1473163928189-364b2c4e1135?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8bWFwc3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
+				alt=""
 			/>
-			<div class="invalid-feedback">Please provide a suitable password</div>
-			<div class="d-grid gap-2">
-				<button class="btn btn-lg btn-success mt-3">Login</button>
-			</div>
+			<div class="card-body">
+				<h5 class="card-title">Login</h5>
+				<form class="validated-form" action="/login" method="POST" novalidate>
+					<div class="mb-3">
+						<label class="form-label text-muted" for="username">Username</label>
+						<input
+							placeholder="Enter Username"
+							class="form-control"
+							type="text"
+							name="username"
+							id="username"
+							required
+							autofocus
+						/>
+						<div class="invalid-feedback">Field cannot be empty</div>
 
-			<div class="d-grid gap-2">
-				<form action="/register">
-					<button class="btn btn-lg btn-info mt-3">Sign Up?</button>
+						<div class="mb-3">
+							<label class="form-label text-muted" for="password"
+								>Password</label
+							>
+							<input
+								placeholder="Please enter a password between 10 and 25 characters long"
+								class="form-control"
+								type="password"
+								name="password"
+								id="password"
+								minlength="10"
+								maxlength="25"
+								required
+							/>
+							<div class="invalid-feedback">
+								Please provide a suitable password
+							</div>
+							<div class="d-grid gap-2">
+								<button class="btn btn-success shadow mt-3">Login</button>
+							</div>
+
+							<div class="d-grid gap-2">
+								<form action="/register">
+									<button class="btn btn-primary shadow mt-3">Sign Up?</button>
+								</form>
+							</div>
+						</div>
+					</div>
 				</form>
 			</div>
 		</div>
 	</div>
-</form>
+</div>

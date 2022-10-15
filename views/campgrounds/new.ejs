@@ -2,37 +2,39 @@
 
 <div class="row">
 	<h1 class="text-center">New Campground</h1>
-	<div class="col-6 offset-3">
-		<form
-			action="/campgrounds"
-			method="POST"
-			novalidate
-			class="validated-form"
-			enctype="multipart/form-data"
-		>
-			<div class="mb-3">
-				<label class="form-label text-muted" for="title">Title</label>
-				<input
-					class="form-control"
-					type="text"
-					name="campground[title]"
-					id="title"
-					required
-				/>
-				<div class="invalid-feedback">Name cannot be empty!</div>
-			</div>
-			<div class="mb-3">
-				<label class="form-label text-muted" for="location">Location</label>
-				<input
-					class="form-control"
-					type="text"
-					name="campground[location]"
-					id="location"
-					required
-				/>
-				<div class="invalid-feedback">Location cannot be empty!</div>
-			</div>
-			<!-- <div class="mb-3">
+	<div class="col-md-4 offset-md-4">
+		<div class="card mb-3 shadow">
+			<div class="card-body">
+				<form
+					action="/campgrounds"
+					method="POST"
+					novalidate
+					class="validated-form"
+					enctype="multipart/form-data"
+				>
+					<div class="mb-3">
+						<label class="form-label text-muted" for="title">Name</label>
+						<input
+							class="form-control"
+							type="text"
+							name="campground[title]"
+							id="title"
+							required
+						/>
+						<div class="invalid-feedback">Name cannot be empty!</div>
+					</div>
+					<div class="mb-3">
+						<label class="form-label text-muted" for="location">Location</label>
+						<input
+							class="form-control"
+							type="text"
+							name="campground[location]"
+							id="location"
+							required
+						/>
+						<div class="invalid-feedback">Location cannot be empty!</div>
+					</div>
+					<!-- <div class="mb-3">
 				<label class="form-label text-muted" for="image">Image Url</label>
 				<input
 					class="form-control"
@@ -43,56 +45,60 @@
 				/>
 				<div class="invalid-feedback">Image cannot be blank!</div>
 			</div> -->
-			<div class="mb-3">
-				<label class="form-label text-muted" for="price"
-					>Campground Price</label
-				>
-				<div class="input-group mb-3">
-					<span class="input-group-text" id="price-label">R</span>
-					<input
-						type="text"
-						class="form-control"
-						name="campground[price]"
-						placeholder="0"
-						id="price"
-						aria-label="Amount (to the nearest dollar)"
-						required
-					/>
-					<span class="input-group-text">/night</span>
-					<div class="invalid-feedback">Price cannot be empty!</div>
+					<div class="mb-3">
+						<label class="form-label text-muted" for="price"
+							>Campground Price</label
+						>
+						<div class="input-group mb-3">
+							<span class="input-group-text" id="price-label">R</span>
+							<input
+								type="text"
+								class="form-control"
+								name="campground[price]"
+								placeholder="0"
+								id="price"
+								aria-label="Amount (to the nearest dollar)"
+								required
+							/>
+							<span class="input-group-text">/night</span>
+							<div class="invalid-feedback">Price cannot be empty!</div>
+						</div>
+					</div>
+					<div class="mb-3">
+						<label class="form-label text-muted" for="description"
+							>Description</label
+						>
+						<textarea
+							class="form-control"
+							type="text"
+							name="campground[description]"
+							id="description"
+							required
+						></textarea>
+						<div class="invalid-feedback">Description cannot be empty!</div>
+					</div>
+					<div class="mb-3">
+						<label class="form-label text-muted" for="image"
+							>Upload Image(s)</label
+						>
+						<input
+							class="form-control text-muted"
+							type="file"
+							name="image"
+							id="image"
+							multiple
+							required
+						/>
+						<div class="invalid-feedback">Please Upload an image</div>
+					</div>
+					<div class="mb-3 d-grid gap-2">
+						<button class="btn btn-success btn-lg">Create Camp</button>
+					</div>
+				</form>
+				<div class="">
+					<a class="btn btn-warning btn-sm" href="/campgrounds">Cancel</a>
 				</div>
 			</div>
-			<div class="mb-3">
-				<label class="form-label text-muted" for="description"
-					>Description</label
-				>
-				<textarea
-					class="form-control"
-					type="text"
-					name="campground[description]"
-					id="description"
-					required
-				></textarea>
-				<div class="invalid-feedback">Description cannot be empty!</div>
-			</div>
-			<div class="mb-3">
-				<label class="form-label text-muted" for="image">Upload Image(s)</label>
-				<input
-					class="form-control text-muted"
-					type="file"
-					name="image"
-					id="image"
-					multiple
-					required
-				/>
-				<div class="invalid-feedback">Please Upload an image</div>
-			</div>
-			<div class="mb-3">
-				<button class="btn btn-success btn-lg">Create Camp</button>
-			</div>
-		</form>
-		<div class="mb-3">
-			<a class="btn btn-danger btn-sm" href="/campgrounds">Cancel</a>
 		</div>
 	</div>
 </div>
