@@ -49,7 +49,7 @@
 			<% if( currentUser && campground.author.equals(currentUser._id)) {%>
 			<div class="card-body">
 				<a
-					class="card-link btn btn-info"
+					class="card-link btn btn-dark"
 					href="/campgrounds/<%=campground._id%>/edit"
 					>Edit</a
 				>
@@ -62,7 +62,9 @@
 				</form>
 			</div>
 			<% } %>
-			<div class="card-footer text-muted">2 days ago</div>
+			<div class="card-footer text-muted">
+				<a href="/campgrounds" class="btn btn-dark">Back</a>
+			</div>
 		</div>
 	</div>
 	<div class="col-6">
