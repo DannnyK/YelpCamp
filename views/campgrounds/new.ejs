@@ -3,7 +3,7 @@
 <div class="row">
 	<h1 class="text-center">New Campground</h1>
 	<div class="col-md-4 offset-md-4">
-		<div class="card mb-3 shadow">
+		<div class="card mb-3 shadow bg-dark">
 			<div class="card-body">
 				<form
 					action="/campgrounds"
@@ -15,7 +15,7 @@
 					<div class="mb-3">
 						<label class="form-label text-muted" for="title">Name</label>
 						<input
-							class="form-control"
+							class="form-control bg-dark"
 							type="text"
 							name="campground[title]"
 							id="title"
@@ -26,9 +26,9 @@
 					<div class="mb-3">
 						<label class="form-label text-muted" for="location">Location</label>
 						<input
-							class="form-control"
+							class="form-control bg-dark"
 							type="text"
-							name="campground[location]"
+ 							name="campground[location]"
 							id="location"
 							required
 						/>
@@ -50,17 +50,17 @@
 							>Campground Price</label
 						>
 						<div class="input-group mb-3">
-							<span class="input-group-text" id="price-label">R</span>
+							<span class="input-group-text bg-dark text-muted" id="price-label">R</span>
 							<input
 								type="text"
-								class="form-control"
+								class="form-control bg-dark"
 								name="campground[price]"
 								placeholder="0"
 								id="price"
 								aria-label="Amount (to the nearest dollar)"
 								required
 							/>
-							<span class="input-group-text">/night</span>
+							<span class="input-group-text bg-dark text-muted">/night</span>
 							<div class="invalid-feedback">Price cannot be empty!</div>
 						</div>
 					</div>
@@ -69,7 +69,7 @@
 							>Description</label
 						>
 						<textarea
-							class="form-control"
+							class="form-control bg-dark"
 							type="text"
 							name="campground[description]"
 							id="description"
@@ -82,7 +82,7 @@
 							>Upload Image(s)</label
 						>
 						<input
-							class="form-control text-muted"
+							class="form-control text-muted bg-dark"
 							type="file"
 							name="image"
 							id="image"
