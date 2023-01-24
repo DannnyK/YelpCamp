@@ -32,7 +32,7 @@ router
 	)
 	.delete(isLoggedIn, isAuthor, catchAsync(campgrounds.deleteCampground));
 
-//edit
+//edit//
 router.get(
 	"/:id/edit",
 	isLoggedIn,
