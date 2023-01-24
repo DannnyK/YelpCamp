@@ -8,7 +8,7 @@ const mongoose = require("mongoose");
 const ejsMate = require("ejs-mate");
 const session = require("express-session");
 const flash = require("connect-flash");
-const ExpressError = require("./utils/ExpressError");
+const ExpressError = require("./utils/expressError");
 const methodOverride = require("method-override");
 const passport = require("passport");
 const LocalStrategy = require("passport-local");
@@ -21,7 +21,7 @@ const campgroundsRoutes = require("./routes/campgrounds");
 const reviewsRoutes = require("./routes/reviews");
 //
 //database
-const dbLocalUrl = "mongodb://localhost:27017/yelp-camp";
+const dbLocalUrl = process.env.LOCAL_MONGO_URL;
 const dbUrl = process.env.DB_URL;
 
 mongoose.connect(dbLocalUrl, {
