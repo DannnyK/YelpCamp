@@ -1,4 +1,2 @@
-# YelpCamp
- YelpCamp project
-Download Zip file
-run "npm i" from command line if node modules dont work 
+This project is from Colt Steele's Web Developer bootcamp on Udemy;
+It was made with Express and Node.
